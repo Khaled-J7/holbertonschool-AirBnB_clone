@@ -73,9 +73,7 @@ $
 
 ## For More Information on How To Handle This Project From Scratch :
 
- Watch :
- [![Alternate Text]({![image](https://github.com/Khaled-J7/holbertonschool-AirBnB_clone/assets/135613251/89ff85c7-3ea5-4110-a19d-8b21e055240b)
-})]({https://youtu.be/p00ES-5K4C8} "Watch This Video")
+ [Watch This Video](https://youtu.be/p00ES-5K4C8)
 
 
 ### Authors : 
