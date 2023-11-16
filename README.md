@@ -6,7 +6,7 @@
 ![image](https://github.com/Khaled-J7/holbertonschool-AirBnB_clone/assets/135613251/33d2d533-a3a2-4692-a1c6-a37bbf5f4ce9)
 
 
-## Description of the project :
+## :bookmark_tabs: Description of the project :
 The goal of the Holbertonschool - AirBnB clone project is to deploy a replica of the Airbnb Website using my server. The final version of this project will have:
 
   *A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
