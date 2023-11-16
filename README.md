@@ -6,7 +6,7 @@
 ![image](https://github.com/Khaled-J7/holbertonschool-AirBnB_clone/assets/135613251/33d2d533-a3a2-4692-a1c6-a37bbf5f4ce9)
 
 
-## :bookmark_tabs: Description of the project :
+## Description of the project :
 The goal of the Holbertonschool - AirBnB clone project is to deploy a replica of the Airbnb Website using my server. The final version of this project will have:
 
   *A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
@@ -14,7 +14,7 @@ The goal of the Holbertonschool - AirBnB clone project is to deploy a replica of
   * A comprehensive database to manage the backend functionalities
   * An API that provides a communication interface between the front and backend of the system.
 
-## General Concepts : 
+##  :bookmark_tabs: General Concepts : 
   * How to create a Python package
   * How to create a command interpreter in Python using the cmd module
   * What is Unit testing and how to implement it in a large project
