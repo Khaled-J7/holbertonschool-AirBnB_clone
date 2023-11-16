@@ -2,8 +2,7 @@
 <div align="center">
 <h1>Holbertonschool - AirBnB clone </h1>
 </div>
- Holbertonschool - AirBnB clone
-
+ 
 ![image](https://github.com/Khaled-J7/holbertonschool-AirBnB_clone/assets/135613251/33d2d533-a3a2-4692-a1c6-a37bbf5f4ce9)
 
 
