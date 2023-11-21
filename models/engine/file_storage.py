@@ -48,4 +48,4 @@ class FileStorage:
                     obj_instance.id = obj_id  # Set the object's ID separately
                     self.__objects[key] = obj_instance
         except FileNotFoundError:
-            pass
+            return
