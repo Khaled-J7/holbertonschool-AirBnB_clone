@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-
+"""Place module: Contains the Place class."""
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-
+    """Place class: Represents a place\
+    listing with various attributes."""
     city_id = ""
     user_id = ""
     name = ""
