@@ -63,3 +63,66 @@ class TestState_instantiation(unittest.TestCase):
     def test_args_unused(self):
         st = State(None)
         self.assertNotIn(None, st.__dict__.values())
+
+    def test_instantiation_with_kwargs(self):
+        dt = datetime.today()
+        dt_iso = dt.isoformat()
+        st = State(id="345", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(st.id, "345")
+        self.assertEqual(st.created_at, dt)
+        self.assertEqual(st.updated_at, dt)
+
+    def test_instantiation_with_None_kwargs(self):
+        with self.assertRaises(TypeError):
+            State(id=None, created_at=None, updated_at=None)
+
+
+class TestState_save(unittest.TestCase):
+
+    @classmethod
+    def setUp(self):
+        try:
+            os.rename("file.json", "tmp")
+        except IOError:
+            pass
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except IOError:
+            pass
+        try:
+            os.rename("tmp", "file.json")
+        except IOError:
+            pass
+
+    def test_one_save(self):
+        st = State()
+        sleep(0.05)
+        first_updated_at = st.updated_at
+        st.save()
+        self.assertLess(first_updated_at, st.updated_at)
+
+    def test_two_saves(self):
+        st = State()
+        sleep(0.05)
+        first_updated_at = st.updated_at
+        st.save()
+        second_updated_at = st.updated_at
+        self.assertLess(first_updated_at, second_updated_at)
+        sleep(0.05)
+        st.save()
+        self.assertLess(second_updated_at, st.updated_at)
+
+    def test_save_with_arg(self):
+        st = State()
+        with self.assertRaises(TypeError):
+            st.save(None)
+
+    def test_save_updates_file(self):
+        st = State()
+        st.save()
+        stid = "State." + st.id
+        with open("file.json", "r") as f:
+            self.assertIn(stid, f.read())
+
