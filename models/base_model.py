@@ -48,7 +48,7 @@ class BaseModel:
         """
         self.updated_at = datetime.today()
         models.storage.save()
-        
+
     def to_dict(self):
         """
         Converts the BaseModel object to a dictionary for serialization.
