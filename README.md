@@ -30,7 +30,7 @@ The goal of the Holbertonschool - AirBnB clone project is to deploy a replica of
 
 ![image](https://github.com/Khaled-J7/holbertonschool-AirBnB_clone/assets/135613251/d9e49321-3eaa-44c1-af45-7a2db680de92)
 
-## :mag: More Info : 
+## More Info : 
 
 ### Execution :
 Your shell should work like this in interactive mode:
