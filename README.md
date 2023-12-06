@@ -79,7 +79,7 @@ $
  [Watch This Video](https://youtu.be/p00ES-5K4C8)
 
 
-### :black_nib: Authors : 
+### Authors : 
 
  * Khaled jallouli 
  * Rayen Jouini  
