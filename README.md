@@ -14,7 +14,7 @@ The goal of the Holbertonschool - AirBnB clone project is to deploy a replica of
   * A comprehensive database to manage the backend functionalities
   * An API that provides a communication interface between the front and backend of the system.
 
-##  :bookmark_tabs: General Concepts : 
+##  General Concepts : 
   * How to create a Python package
   * How to create a command interpreter in Python using the cmd module
   * What is Unit testing and how to implement it in a large project
