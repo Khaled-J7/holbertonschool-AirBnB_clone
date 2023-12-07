@@ -2,6 +2,8 @@
 """
 base_model module: Defines the BaseModel class.
 """
+
+from models.engine.file_storage import storage
 import models
 import uuid
 from datetime import datetime
