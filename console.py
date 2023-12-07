@@ -10,7 +10,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.engine.file_storage import FileStorage
-
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -53,6 +53,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
             storage.new(new_instance)
             storage.save()
+
 
     def do_show(self, arg):
         """show instance based on class name and ID"""
