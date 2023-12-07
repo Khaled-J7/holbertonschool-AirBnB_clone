@@ -3,8 +3,8 @@
 base_model module: Defines the BaseModel class.
 """
 
-from models import storage
-import models
+
+from models import storage  
 import uuid
 from datetime import datetime
 
