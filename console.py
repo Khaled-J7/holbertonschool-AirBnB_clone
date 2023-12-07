@@ -2,7 +2,7 @@
 """console module"""
 
 import cmd
-from models import storage
+from models.engine.file_storage import FileStorage
 
 
 class HBNBCommand(cmd.Cmd):
