@@ -8,7 +8,6 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 import json
-from models import storage
 
 
 class FileStorage:
