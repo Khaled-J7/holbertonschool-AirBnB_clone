@@ -9,7 +9,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
-from engine.models import storage
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
