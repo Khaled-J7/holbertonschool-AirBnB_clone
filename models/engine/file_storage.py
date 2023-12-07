@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Defines the fileStorage class"""
-
-from models.engine import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
@@ -20,7 +18,6 @@ class FileStorage:
         __objects (dict): A dictionary of instantiated objects.
     """
     __file_path = "file.json"
-    __objects = storage.all()
     __objects = {}
 
     def all(self):
@@ -47,7 +44,7 @@ class FileStorage:
                 for key, value in loaded_data.items():
                     obj_id = key.split(".")[1]
                     obj_class = value.pop("__class__")
-                    obj_instance = BaseModel(**value)
+                    obj_instance = globals()[obj_class](**value)
                     obj_instance.id = obj_id  # Set the object's ID separately
                     self.__objects[key] = obj_instance
         except FileNotFoundError:
