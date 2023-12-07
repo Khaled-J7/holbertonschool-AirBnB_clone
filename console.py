@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         print("Quit command to exit the program\n")
 
     def do_create(self, arg=None):
-      """Create an instance of class"""
+        """Create an instance of class"""
         if not arg:
             print("** class name missing **")
         elif arg not in HBNBCommand.__classes:
