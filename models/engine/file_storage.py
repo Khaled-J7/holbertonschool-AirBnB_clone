@@ -8,6 +8,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 import json
+from models import storage
 
 
 class FileStorage:
@@ -44,7 +45,7 @@ class FileStorage:
                 for key, value in loaded_data.items():
                     obj_id = key.split(".")[1]
                     obj_class = value.pop("__class__")
-                    obj_instance = globals()[obj_class](**value)
+                    obj_instance = BaseModel(**value)
                     obj_instance.id = obj_id  # Set the object's ID separately
                     self.__objects[key] = obj_instance
         except FileNotFoundError:
