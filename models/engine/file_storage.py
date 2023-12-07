@@ -18,6 +18,7 @@ class FileStorage:
         __objects (dict): A dictionary of instantiated objects.
     """
     __file_path = "file.json"
+    __objects = storage.all()
     __objects = {}
 
     def all(self):
