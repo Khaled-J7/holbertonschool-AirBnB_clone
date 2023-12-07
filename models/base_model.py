@@ -3,9 +3,8 @@
 base_model module: Defines the BaseModel class.
 """
 import models
-from uuid import uuid4
+import uuid
 from datetime import datetime
-from models.engine.file_storage import FileStorage
 
 
 class BaseModel:
@@ -26,18 +25,24 @@ class BaseModel:
             *args: Variable length argument list.
             **kwargs: Arbitrary keyword arguments.
         """
-        tform = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
-        if len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "created_at" or k == "updated_at":
-                    self.__dict__[k] = datetime.strptime(v, tform)
-                else:
-                    self.__dict__[k] = v
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
+                if key == "created_at" or key == "updated_at":
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                setattr(self, key, value)
         else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
+
+    def __str__(self):
+        """
+        Returns a string representation of the BaseModel object
+        """
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """
@@ -47,7 +52,7 @@ class BaseModel:
         This method updates the 'updated_at' attribute of the object with the
         current datetime and then triggers the storage to save the changes.
         """
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
@@ -58,15 +63,8 @@ class BaseModel:
             dict: A dictionary containing the object's attributes and metadata,
             suitable for serialization.
         """
-        rdict = self.__dict__.copy()
-        rdict["created_at"] = self.created_at.isoformat()
-        rdict["updated_at"] = self.updated_at.isoformat()
-        rdict["__class__"] = self.__class__.__name__
-        return rdict
-
-    def __str__(self):
-        """
-        Returns a string representation of the BaseModel object
-        """
-        clname = self.__class__.__name__
-        return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+        new_dict = self.__dict__.copy()
+        new_dict["__class__"] = self.__class__.__name__
+        new_dict["created_at"] = self.created_at.isoformat()
+        new_dict["updated_at"] = self.updated_at.isoformat()
+        return new_dict
