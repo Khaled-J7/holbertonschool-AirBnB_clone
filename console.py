@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """console module"""
 
-from models import storage
 import cmd
 from models.base_model import BaseModel
 from models.user import User
@@ -10,8 +9,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
-from models.engine.file_storage import FileStorage
-
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -50,11 +48,8 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            new_instance = eval(arg)()
-            print(new_instance.id)
-            storage.new(new_instance)
+            print(eval(arg)().id)
             storage.save()
-
 
     def do_show(self, arg):
         """show instance based on class name and ID"""
